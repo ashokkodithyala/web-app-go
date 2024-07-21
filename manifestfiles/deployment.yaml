@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app-go
+  labels:
+    app: web-app-go
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: web-app-go
+  template:
+    metadata:
+      labels:
+        run: web-app-go
+    spec:
+      containers:
+        - name: nginx-container
+          image: dockers766/web-app-go:v1          
+          ports:
+          - containerPort: 8080
